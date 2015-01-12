@@ -1,0 +1,16 @@
+<index:>
+  <div class="row">
+    <div class="col-sm-10 col-sm-offset-1">
+      <h2>All items in list shown</h2>
+      {{each #root._page.list as #item, #index}}
+        <p><b>{{#index}}</b> -- {{#item.content}}</p>
+      {{/}}
+      <h2>Items filtered out with if sentence</h2>
+      <p>This causes an error in Saddle, when it tries to attach nothing to the DOM</p>
+      {{each #root._page.list as #item, #index}}
+        {{if #item.show}}
+          <p><b>{{#index}}</b> -- {{#item.content}}</p>
+        {{/if}}
+      {{/each}}
+    </div>
+  </div>

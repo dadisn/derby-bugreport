@@ -1,0 +1,9 @@
+{
+  "generator-derby": {
+    "project": "derby bugreport",
+    "apps": [
+      "derby-bugreport"
+    ],
+    "coffee": false
+  }
+}

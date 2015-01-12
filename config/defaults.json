@@ -1,0 +1,7 @@
+{
+  "NODE_ENV": "development",
+  "PORT": 3000,
+  "MONGO_URL": "mongodb://localhost:27017/derby-bugreport",
+  "SESSION_SECRET": "b19736943be0d8a9915070fbb3198dfb9159de04",
+  "SESSION_COOKIE": "71f2bf499a49b5da5d2a7386b64ab8a68c5478f9"
+}
