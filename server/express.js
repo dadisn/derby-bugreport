@@ -33,7 +33,7 @@ module.exports = function (store, apps, error, publicDir, cb){
     .use(bodyParser.urlencoded({extended: true}))
     .use(session)
     .use(handlers.middleware)
-    .use(createUserId);
+    .use(error);
 
   apps.forEach(function(app){
     expressApp.use(app.router());
@@ -42,16 +42,7 @@ module.exports = function (store, apps, error, publicDir, cb){
   expressApp.use(require('./routes'));
 
   expressApp
-    .all('*', function (req, res, next) { next('404: ' + req.url); })
-    .use(error);
+    .all('*', function (req, res, next) { next('404: ' + req.url); });
 
   cb(expressApp, handlers.upgrade);
-}
-
-function createUserId(req, res, next) {
-  var model = req.getModel();
-  var userId = req.session.userId;
-  if (!userId) userId = req.session.userId = model.id();
-  model.set('_session.userId', userId);
-  next();
 }

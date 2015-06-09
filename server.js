@@ -5,14 +5,15 @@ var http  = require('http');
 var chalk = require('chalk');
 
 var publicDir = process.cwd() + '/public';
-
+derby.use(require('racer-bundle'));
 derby.run(function(){
   require('coffee-script/register');
 
   require('./server/config');
 
   var apps = [
-    require('./apps/derby-bugreport')
+      require('./apps/derby-bugreport1')
+    , require('./apps/derby-bugreport2')
     // <end of app list> - don't remove this comment
   ];
 
