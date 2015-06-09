@@ -1,0 +1,37 @@
+<index:>
+  <div class="row">
+    <div class="col-md-5 col-md-offset-1">
+      <h1>Filtered & referenced data</h1>
+      {{each _page.data as #data, #dataIndex}}
+        Item nr. {{#dataIndex}} in the _page.data array
+        <ul style="list-unstyled">
+          {{each #data.products as #product, #productIndex}}
+            <li>
+              Quantity of product nr. {{#productIndex}} - <b>{{#product.qty}}</b>
+              <button type="button" style="margin-left: 20px" class="btn btn-default" on-click="increment(#dataIndex, #productIndex, 1)">+</button>
+              <button type="button" style="margin-left: 10px" class="btn btn-default" on-click="increment(#dataIndex, #productIndex, -1)">-</button>
+            </li>
+          {{/each}}
+        </ul>
+        <h4>Total: {{_page.total[#dataIndex]}}</h4>
+        <hr>
+      {{/each}}
+    </div>
+    <div class="col-md-5" style="border-left: 1px solid #ddd">
+      <h1>Local data</h1>
+      {{each _page.dataLocal as #dataLocal, #dataLocalIndex}}
+        Item nr. {{#dataLocalIndex}} in the _page.dataLocal array
+        <ul style="list-unstyled">
+          {{each #dataLocal.products as #productLocal, #productLocalIndex}}
+            <li>
+              Quantity of product nr. {{#productLocalIndex}} - <b>{{#productLocal.qty}}</b>
+              <button type="button" style="margin-left: 20px" class="btn btn-default" on-click="incrementLocal(#dataLocalIndex, #productLocalIndex, 1)">+</button>
+              <button type="button" style="margin-left: 10px" class="btn btn-default" on-click="incrementLocal(#dataLocalIndex, #productLocalIndex, -1)">-</button>
+            </li>
+          {{/each}}
+        </ul>
+        <h4>Total: {{_page.totalLocal[#dataLocalIndex]}}</h4> 
+        <hr>
+      {{/each}}
+    </div>
+  </div>
